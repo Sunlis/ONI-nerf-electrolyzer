@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONI Rebalancing Mod", "ONI Rebalancing Mod.csproj", "{ADD11094-90AB-4A4E-A917-E8B73F32F90C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONI-Disassembly", "..\..\disassembly\ONI-Disassembly\ONI-Disassembly.csproj", "{04FDF03A-3814-4C1A-A65C-5B998301C578}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{ADD11094-90AB-4A4E-A917-E8B73F32F90C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADD11094-90AB-4A4E-A917-E8B73F32F90C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADD11094-90AB-4A4E-A917-E8B73F32F90C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04FDF03A-3814-4C1A-A65C-5B998301C578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04FDF03A-3814-4C1A-A65C-5B998301C578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04FDF03A-3814-4C1A-A65C-5B998301C578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04FDF03A-3814-4C1A-A65C-5B998301C578}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

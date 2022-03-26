@@ -32,7 +32,7 @@ This change requires emptying every 9 cycles instead of needing a change every \
 
 The lighting efficiency bonus might be raised to 15%, but 10% is pretty ok
 
-I'm considering making this *produce* algae under direct sunlight and presence of CO2, but I suspect that is overpowered.
+I'm considering making this *produce* algae under light and presence of CO2, but I suspect that is overpowered.
 
 ## Electrolyzer
 
