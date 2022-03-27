@@ -4,9 +4,11 @@ Rebalance the game, duh!
 
 ---
 
-# Analysis of Problematic Buildings
+- &check; in a heading indicates the rebalance has been implemented.
+- &bull; indicates it is in progress.
+- &cross; indicates that the balancing issues are opt-in via other recommended mods.
 
-A &check; in the heading indicates the rebalance has been implemented. &bull; indicates it is in progress.
+# Analysis of Problematic Buildings
 
 ## Automatic Dispenser
 
@@ -30,7 +32,7 @@ This is an interesting building that is held back primarily by its labor require
 Solution: keep net water consumption rate, but massively reduce water pollution rate
     * -300 g/s -> -50 g/s water
     * +290 g/s -> +40 g/s pwater
-This change requires emptying every 9 cycles instead of needing a change every \~1.25 cycles, a 7.2x improvement
+This change requires emptying every 9 cycles instead of needing a change every \~1.25 cycles, a 7.2x improvement in labor cost
 
 The lighting efficiency bonus might be raised to 15%, but 10% is pretty ok
 
@@ -65,6 +67,8 @@ The Fix:
 *  +112g/s @70+C ->  +84g/s @50+C hydrogen
 *  +1.25 kDTU/s  ->  +4 kDTU/s
 
+Additional functionality worth considering: electrolyzing saltwater outputs chlorine, hydrogen, and some other residue, possibly lime
+
 ## Rust Deoxidizer
 
 This building is *probably* fine as is.
@@ -80,7 +84,7 @@ Fix:
 
 With that change, they generate the same heat per watt as Coal Generators and are only slightly less resource efficient.
 
-## Large Power Transformer
+## Large Power Transformer &cross;
 
 Generating 4kW is a little silly since conductive wire can only handle 2kW. But this is not unbalanced.
 
@@ -92,22 +96,23 @@ In most cases, you can easily trick ranchers into wrangling airborne critters vi
 
 Costing metal ore is excessive for what little value it provides.
 
-Make it cost raw minerals instead.
+This building now requires raw minerals instead.
 
 ## Critter Trap / Fish Trap &check;
 
 Consuming plastic is absolutely insane since you'll have a rancher long before you'll ever have plastic.
 
-Make it cost raw minerals instead.
+Both buildings now require raw minerals instead.
 
 ## Incubator
 
 Incubators are generally not worth powering unless you cheese the Lullabied buff with a timer sensor,
 making the tradeoff of powering the building less interesting.
 
-Power use should be reduced tremendously (10-60W), but the Lullabied buff is dropped immediately when the building is unpowered.
+Power use should be reduced tremendously (10-60W), but the Lullabied buff is dropped immediately
+when the building is unpowered or disabled or the egg is removed.
 
-## Microbe Musher
+## Microbe Musher &check;
 
 Uses way more power than the grill for some reason.
 
@@ -150,11 +155,19 @@ Produces too much heat and requires too much labor
 
 ## Desalinator
 
-Too much heat generation, power cost too high
+Too much heat generation, power cost too high, emptying the salt takes too long.
 
-It's a necessary evil when you have salt water and few other power sources
+It's a necessary evil when you have salt water and few other power sources but just ends up being a huge hassle in practice.
 
-desalination via steam turbine is often a better option.
+It's interesting to note that IRL submarines filter saltwater for their electrolyzers using something
+more akin to the water sieve, so it's crazy that this machine costs so much more power than the sieve.
+
+Desalination via steam turbine is often a better option.
+
+Changes:
+* Power cost reduced from 480W to 120W
+* Heat output reduced from 8kDTU/s to 4kDTU/s
+* Empty chore time reduced from 90s to 30s
 
 ## Ethanol Distiller &check;
 
@@ -186,7 +199,18 @@ Maybe should require less power?
 
 ## Oil Refinery
 
-Should perhaps produce more natural gas?
+The oil refinery has trouble being competitive with petroleum boilers for those who know the ways.
+
+The labor requirements and poor product efficiency make it unappealing to use.
+
+Changes:
+- 5 kg/s -> 6 kg/s petroleum
+- 90 g/s -> 180 g/s natural gas
+- also produces 100 g/s refined carbon
+
+Alternatively: use the Asphalt Mod
+
+Alternatively: reduce petroleum boiling efficiency by introducing a residue such as bitumen or hydrogen gas
 
 ## Sludge Press
 
@@ -199,13 +223,25 @@ Potentially impossible Fix: remove labor requirement with stats:
 * +1200g/s dirt/pdirt
 * +1800g/s water/pwater
 
-## Medical Buildings
+## Medical Buildings &cross;
 
 Germs and disease are kind of irrelevant. Perhaps slimelung should last longer without treatment?
 
 Maybe it's okay that disease is mostly irrelevant since the real engineering challenges are elsewhere.
 
 There are mods and difficulty settings to address this, so I will leave these buildings untouched.
+
+## Art Pieces
+
+Morale bonus is too low. Plants are better. Little reason to skill up artists.
+
+Increase decor bonuses from 5/10/15 to 15/30/45
+
+## Decorative Plants
+
+Bonus is just a bit too high.
+
+Lower decor for all but sporechid to +15 decor
 
 ## Recreational Buildings
 
@@ -287,6 +323,39 @@ This probably means nerfing the radiation output of Wheezeworts
 
 ---
 
+# Crops
+
+## Waterweed
+
+Not really worth the effort unless you have mushrooms and a gas range.
+
+It's not particularly difficult to domesticate, however it is still costly due to the bleach stone requirements.
+Squeaky pufts and a chlorine geyser are necessary to produce waterweed sustainably.
+
+Raw lettuce isn't very good and the only recipes requiring it are made in the Gas Range.
+
+## Nosh Bean
+
+Huge hassle to domesticate for minimal benefit. You would only ever do it to flex.
+
+The ethanol requirements must be supported by an arbor tree farm, you need to keep the farm cool,
+and for all that hassle, you still have to combine it with pincha peppernut to get a decent morale.
+
+---
+
+# Ranching
+
+## Pufts and Slicksters
+
+They don't eat gases fast enough, so scaling them up ends up being utterly impractical.
+
+
+## Starvation Ranching
+
+I am uncertain whether I want to make starvation ranching unviable as a food source, particularly for shove voles.
+
+---
+
 # Morale Issues
 
 There are a lot of no-brainer sources of easy morale that make it far too easy to skill up your dupes
@@ -297,13 +366,15 @@ The Great Hall bonus is far too easy to obtain for its incredible +6 morale bonu
 The simplest way to get it is to add a disabled water cooler and a decorative plant to a mess hall.
 
 The fix:
-- Change decor 20 requirement to one of:
+- Rework decoration bonus:
     - 2 completed pieces of art (any quality)
-    - Decor 50 item
-    - Any artifact displayed on a pedestal (relatively easy in spaced out, very late game in base game)
+    - Require 30 decor instead of just 20, buff art
+    - Buff art to 20+ decor and nerf decorative plants to +15 decor (just shy of the bonus)
+    - Any artifact displayed on a pedestal (relatively easy in spaced out, too hard for base game)
 - Recreational building must be active for the requirement to be met
 - Now requires powered fridge (if possible as a constraint. Any fridge is fine otherwise.)
 - All mess tables must be lit (if this is possible to add as a constraint)
+    - Or just a light source would be fine
 
 In addition, the morale bonus should be nerfed to +3 or +4, with the Mess hall bonus also being nerfed accordingly
 
@@ -338,28 +409,3 @@ Food morale is out of control. The morale curve is just crazy and needs to be to
 * 4 -> 7 (from 12)
 * 5+ -> 10 (from 16)
 
----
-
-# Ranching
-
-## Pufts and Slicksters
-
-They don't eat gases fast enough, so scaling them up ends up being utterly impractical.
-
-
-## Starvation Ranching
-
-I am uncertain whether I want to make starvation ranching unviable as a food source, particularly for shove voles.
-
-
----
-
-# Creative Builds
-
-## Petroleum Boilers
-
-These are really strong and are water positive, but I'm not sure if they're overpowered given how finnicky they are.
-
-It could be interesting if boiling crude oil to petroleum left behind something (probably bitumen) instead of having a 100% conversion rate.
-
-Alternatively, the Asphalt Tile mod would be a good recommended mod to create a tradeoff out of this

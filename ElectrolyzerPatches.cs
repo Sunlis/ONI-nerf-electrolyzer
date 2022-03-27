@@ -18,7 +18,7 @@ public class ElectrolyzerPatches
     [HarmonyPatch(typeof(ElectrolyzerConfig), nameof(ElectrolyzerConfig.ConfigureBuildingTemplate))]
     public class ElectrolyzerConfig_ConfigureBuildingTemplate_Patch
     {
-        public static void Postfix(GameObject go, ElectrolyzerConfig __instance) 
+        public static void Postfix(GameObject go) 
         {
             var gasOutputPos = new CellOffset(0, 1);
             var ec = go.GetComponent<ElementConverter>();
