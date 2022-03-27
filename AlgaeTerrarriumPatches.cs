@@ -8,16 +8,19 @@ class AlgaeTerrariumPatches
     {
         public static void Postfix(GameObject go)
         {
-            var converters = go.GetComponents<ElementConverter>();
-            if (converters != null || converters.Length != 2)
+            var waterTag = SimHashes.Water.CreateTag();
+            var convertersUntyped = go.GetComponents(typeof(ElementConverter));
+            foreach (ElementConverter converter in convertersUntyped)
             {
-                Debug.Log("Unable to patch algae terrarium");
-                return;
+                if (converter.outputElements.Length == 1 && converter.outputElements[0].elementHash == SimHashes.DirtyWater)
+                {
+                    converter.outputElements[0].massGenerationRate = 0.0403334f;
+                }
+                else if (converter.consumedElements.Length == 2 && converter.consumedElements[1].tag == waterTag)
+                {
+                    converter.consumedElements[1].massConsumptionRate = 0.05f;
+                }
             }
-            var oxygenIdx = converters[0].outputElements[0].elementHash == SimHashes.Oxygen? 0: 1; // this one has the water consumer on the input side
-            var pwaterIdx = 1 - oxygenIdx;
-            converters[oxygenIdx].consumedElements[1].massConsumptionRate = 0.05f;   // Water:  300      -> 50      g/s
-            converters[pwaterIdx].outputElements[0].massGenerationRate = 0.0403334f; // PWater: 290.3334 -> 40.3334 g/s
         }
     }
 }

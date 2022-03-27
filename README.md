@@ -6,6 +6,8 @@ Rebalance the game, duh!
 
 # Analysis of Problematic Buildings
 
+A &check; in the heading indicates the rebalance has been implemented. &bull; indicates it is in progress.
+
 ## Automatic Dispenser
 
 The primary use case of this building is to remain unpowered and dispense immediately.
@@ -13,7 +15,7 @@ Almost nobody ever powers these, so I see a couple of sensible ways to rework th
 - holding items is now free, with *dispensing* items requiring power instead
 - get rid of the power input entirely
 
-## Smart Storage Bin
+## Smart Storage Bin &check;
 
 Problems:
 - Weight plates are almost always a better option since they do not require power.
@@ -21,7 +23,7 @@ Problems:
 - Requiring refined metal is excessive for what these do
     - allow them to be built with metal ores
 
-## Algae Terrarium
+## Algae Terrarium &check;
 
 This is an interesting building that is held back primarily by its labor requirements and the fact that it never overpressurizes.
 
@@ -34,7 +36,7 @@ The lighting efficiency bonus might be raised to 15%, but 10% is pretty ok
 
 I'm considering making this *produce* algae under light and presence of CO2, but I suspect that is overpowered.
 
-## Electrolyzer
+## Electrolyzer &check;
 
 Electrolyzers are the main event when it comes to oxygen production.
 
@@ -51,22 +53,23 @@ Problems:
     You have to have a serious cooling solution in place which you almost certainly want to pump
     through a block of metal tiles or something like that.
 - Electrolyzer rooms overpressure too easily. It's very difficult to run a 100% uptime electrolyzer build, even in space.
+    - That is unless you do a hydra, which I don't particularly like because it's cheesy.
 - The Gas Pump buff needs to be counteracted or else SPOMs become far too strong
 
 To compensate for the gas pump changes, this would need to cost 360W/kg or more to run.
 
 The Fix:
-*  -120W         -> -300W
+*  -120W         -> -270W
 * -1000g/s       -> -750g/s water
 *  +888g/s @70+C -> +666g/s @50+C oxygen
 *  +112g/s @70+C ->  +84g/s @50+C hydrogen
-*  +1.25 kDTU/s  ->  +2.5 kDTU/s
+*  +1.25 kDTU/s  ->  +4 kDTU/s
 
 ## Rust Deoxidizer
 
 This building is *probably* fine as is.
 
-## Wood Burner
+## Wood Burner &check;
 
 Wood Burners are insanely inefficient. They produce too much CO2 and cost too much lumber.
 
@@ -83,7 +86,7 @@ Generating 4kW is a little silly since conductive wire can only handle 2kW. But 
 
 Still, there's a couple mods that deal with this ideosyncracy already and I'd rather that be an opt-in feature via those mods.
 
-## Airborne Critter Bait
+## Airborne Critter Bait &check;
 
 In most cases, you can easily trick ranchers into wrangling airborne critters via a Critter Drop-Off
 
@@ -91,13 +94,26 @@ Costing metal ore is excessive for what little value it provides.
 
 Make it cost raw minerals instead.
 
-## Critter Trap / Fish Trap
+## Critter Trap / Fish Trap &check;
 
 Consuming plastic is absolutely insane since you'll have a rancher long before you'll ever have plastic.
 
 Make it cost raw minerals instead.
 
-## Liquid Filter / Gas Filter / Solid Filter
+## Incubator
+
+Incubators are generally not worth powering unless you cheese the Lullabied buff with a timer sensor,
+making the tradeoff of powering the building less interesting.
+
+Power use should be reduced tremendously (10-60W), but the Lullabied buff is dropped immediately when the building is unpowered.
+
+## Microbe Musher
+
+Uses way more power than the grill for some reason.
+
+The Fix: Power consumption reduced to 60W
+
+## Liquid Filter / Gas Filter / Solid Filter &check;
 
 These can be simulated less expensively with a shutoff valve and an element sensor, provided
 that the substance flows at full speed
@@ -105,20 +121,20 @@ that the substance flows at full speed
 Solution: reduce power to 20W. Bringing them down to 10W sounds reasonable at face value,
 but the convenience factor and better handling of edge cases is worth some power, just not 110W.
 
-## Gas Pump
+## Gas Pump &check;
 
 Gas pumps cost the same amount of power as liquid pumps but only fill gas vents halfway.
-While you *could* increase the pumping speed to 1000g/s, this sucks out gas far faster than it can
+While you *could* increase the pumping speed to 1000g/s, this sucks out gas faster than it can
 diffuse in a typical 1.8-2kg/tile pressure, and would result in pumps being unable to run at full
 speed in most cases.
 
 The solution then is to reduce its power requirement to 120W.
 
-## Mini Gas Pump
+## Mini Gas Pump &check;
 
 In accordance with the power cost reduction of the full size gas pump, reduce power requirement to 30W.
 
-## Algae Distiller
+## Algae Distiller &check;
 
 Held back by excessive heat generation (and heat multiplication) and slow output
 
@@ -140,7 +156,7 @@ It's a necessary evil when you have salt water and few other power sources
 
 desalination via steam turbine is often a better option.
 
-## Ethanol Distiller
+## Ethanol Distiller &check;
 
 These simply aren't worth the effort for the ethanol. You probably "want" the polluted dirt or CO2.
 
@@ -223,17 +239,17 @@ The fix: add a liquid input and output so you can use it instead of chlorine dec
 
 Except that really doesn't matter.
 
-## Space Heater
+## Space Heater &check;
 
 This building doesn't transfer its heat to air fast enough and produces too little heat per Watt,
 so it is generally only good as a temporary quick and dirty heating solution...
 except that a kiln is more practical most of the time.
 
-- Add a tempshift-plate-like effect to the 4 tiles it occupies, much like the Ice-E Fan.
-- Increase heat output to 180 kDTU/s
+- Decrease Power consumption to 60W
+- Increase heat output to 100 kDTU/s
 - Increase overheat temperature to 175C
 
-## Thermo Regulator
+## Thermo Regulator &check;
 
 This building is half as power efficient as aquatuners per C, which is too large of a tradeoff for its ease of use.
 

@@ -20,7 +20,7 @@ using UnityEngine;
         {
             var energyGenerator = go.GetComponent<EnergyGenerator>();
             // reduce wood consumption rate and CO2 production rate
-            energyGenerator.formula = EnergyGenerator.CreateSimpleFormula(WoodLogConfig.TAG, 0.6f, 720f, SimHashes.CarbonDioxide, 0.03f, false, new CellOffset(0, 1), 383.15f);
+            energyGenerator.formula = EnergyGenerator.CreateSimpleFormula(WoodLogConfig.TAG, 0.6f, 720f, SimHashes.CarbonDioxide, 0.03f, false, new CellOffset(0, 1), Temp.C(95f));
         }
     }
 }
