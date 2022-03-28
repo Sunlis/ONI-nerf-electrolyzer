@@ -30,8 +30,8 @@ Problems:
 This is an interesting building that is held back primarily by its labor requirements and the fact that it never overpressurizes.
 
 Solution: keep net water consumption rate, but massively reduce water pollution rate
-    * -300 g/s -> -50 g/s water
-    * +290 g/s -> +40 g/s pwater
+* -300 g/s -> -50 g/s water
+* +290 g/s -> +40 g/s pwater
 This change requires emptying every 9 cycles instead of needing a change every \~1.25 cycles, a 7.2x improvement in labor cost
 
 The lighting efficiency bonus might be raised to 15%, but 10% is pretty ok
@@ -153,7 +153,7 @@ The fix:
 
 Produces too much heat and requires too much labor
 
-## Desalinator
+## Desalinator &check;
 
 Too much heat generation, power cost too high, emptying the salt takes too long.
 
@@ -225,23 +225,25 @@ Potentially impossible Fix: remove labor requirement with stats:
 
 ## Medical Buildings &cross;
 
-Germs and disease are kind of irrelevant. Perhaps slimelung should last longer without treatment?
+Germs and disease are kind of irrelevant. This is ok because the real engineering challenges are elsewhere.
 
-Maybe it's okay that disease is mostly irrelevant since the real engineering challenges are elsewhere.
+There are mods and difficulty settings to address disease, so I will leave these buildings untouched.
 
-There are mods and difficulty settings to address this, so I will leave these buildings untouched.
-
-## Art Pieces
+## Art Pieces &check;
 
 Morale bonus is too low. Plants are better. Little reason to skill up artists.
 
 Increase decor bonuses from 5/10/15 to 15/30/45
 
-## Decorative Plants
+## Decorative Plants &check;
 
-Bonus is just a bit too high.
+Bonus is too high, making it far too easy to get the great hall bonus.
 
-Lower decor for all but sporechid to +15 decor
+Lower decor for all decorative plants except tranquil toe and sporechid to +15
+
+Tranquil Toes have an interesting tradeoff because they require such a low temperature (which duplicants don't like very much)
+
+Sporechids are interesting because they are high-risk-high-reward
 
 ## Recreational Buildings
 
@@ -259,7 +261,10 @@ Power rooms max size increased to 120 to make this building easier to take advan
 
 The fertilizer buff isn't worth it due to both labor requirements and resource usage.
 
-Solution: Increase Farmer's Touch buff duration to 3 cycles and reduce buff applying time to 5s.
+Changes:
+- Increase Farmer's Touch buff duration to 3 cycles
+- Reduce buff applying time to 5s.
+- Increase production yield to 3 units.
 
 ## Ice-E Fan
 
@@ -281,9 +286,9 @@ This building doesn't transfer its heat to air fast enough and produces too litt
 so it is generally only good as a temporary quick and dirty heating solution...
 except that a kiln is more practical most of the time.
 
-- Decrease Power consumption to 60W
-- Increase heat output to 100 kDTU/s
-- Increase overheat temperature to 175C
+* Decrease Power consumption to 60W
+* Increase heat output to 100 kDTU/s
+* Increase overheat temperature to 175C
 
 ## Thermo Regulator &check;
 
@@ -360,23 +365,19 @@ I am uncertain whether I want to make starvation ranching unviable as a food sou
 
 There are a lot of no-brainer sources of easy morale that make it far too easy to skill up your dupes
 
-## Great Hall
+## Great Hall &bull;
 
 The Great Hall bonus is far too easy to obtain for its incredible +6 morale bonus.
 The simplest way to get it is to add a disabled water cooler and a decorative plant to a mess hall.
 
-The fix:
-- Rework decoration bonus:
-    - 2 completed pieces of art (any quality)
-    - Require 30 decor instead of just 20, buff art
-    - Buff art to 20+ decor and nerf decorative plants to +15 decor (just shy of the bonus)
-    - Any artifact displayed on a pedestal (relatively easy in spaced out, too hard for base game)
-- Recreational building must be active for the requirement to be met
-- Now requires powered fridge (if possible as a constraint. Any fridge is fine otherwise.)
-- All mess tables must be lit (if this is possible to add as a constraint)
-    - Or just a light source would be fine
+Changes:
+- Art buff / plant nerf fixes the Decor 20+ item constraint being too easy to satisfy
+- Now requires light source
 
-In addition, the morale bonus should be nerfed to +3 or +4, with the Mess hall bonus also being nerfed accordingly
+Future Changes: (if possible)
+- Recreational building must be active for the requirement to be met (if possible)
+- Now requires ration box or fridge
+- Reduce morale bonus of Great Hall to +3 and Mess Hall to +1
 
 ## Parks and Nature Reserves
 
@@ -401,11 +402,11 @@ The fix:
 
 Food morale is out of control. The morale curve is just crazy and needs to be toned down:
 
-* -1 -> -1
-* 0 -> 0
-* 1 -> 1
-* 2 -> 2 (from 4)
-* 3 -> 4 (from 8)
-* 4 -> 7 (from 12)
-* 5+ -> 10 (from 16)
+* -1: -1
+*  0: 0
+*  1: 1
+*  2: 2 (from 4)
+*  3: 4 (from 8)
+*  4: 7 (from 12)
+*  5+: 10 (from 16)
 

@@ -62,10 +62,14 @@
   <ItemGroup>
     <Compile Include="AlgaeDistilleryPatch.cs" />
     <Compile Include="AlgaeTerrarriumPatches.cs" />
+    <Compile Include="ArtDecorPatch.cs" />
     <Compile Include="CritterTrapsAndBaitPatches.cs" />
+    <Compile Include="DesalinatorPatches.cs" />
     <Compile Include="EthanolDistilleryPatches.cs" />
     <Compile Include="FilterPatches.cs" />
     <Compile Include="MicrobeMusherPatches.cs" />
+    <Compile Include="PlantDecorPatches.cs" />
+    <Compile Include="RoomTypesPatches.cs" />
     <Compile Include="SmartStoragePatches.cs" />
     <Compile Include="GasPumpPatches.cs" />
     <Compile Include="ElectrolyzerPatches.cs" />
