@@ -3,7 +3,7 @@ This is an all-in-one mod that aims to rebalance the game.
 This is a work in progress. View progress and balancing notes at https://github.com/Beefster09/ONI-Rebalancing-Mod
 Suggestions and bug reports are welcome. Forking this mod is fine with me, just ask first and give credit when you do.
 
-# Changes
+[h1]Changes[/h1]
 
 Smart Storage Bin
 * No longer requires power
@@ -26,6 +26,12 @@ Wood Burner
 * -1200g/s -> -600g/s wood
 *  +170g/s ->  +30g/s CO2
 *  +9kDTU  ->  +4.5kDTU
+
+Airborne Critter Bait
+* Now only requires minerals
+
+Critter / Fish Trap
+* Now only requires raw minerals instead of plastic
 
 Microbe Musher
 * Power consumption reduced to 60W
