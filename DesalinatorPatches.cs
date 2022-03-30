@@ -9,7 +9,7 @@ public class DesalinatorPatches
     {
         public static void Postfix(BuildingDef __result)
         {
-            __result.EnergyConsumptionWhenActive = 120f;
+            __result.EnergyConsumptionWhenActive = 240f;
             __result.SelfHeatKilowattsWhenActive = 4f;
         }
     }

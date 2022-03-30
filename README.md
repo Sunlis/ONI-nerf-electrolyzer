@@ -56,18 +56,25 @@ Problems:
     through a block of metal tiles or something like that.
 - Electrolyzer rooms overpressure too easily. It's very difficult to run a 100% uptime electrolyzer build, even in space.
     - That is unless you do a hydra, which I don't particularly like because it's cheesy.
-- The Gas Pump buff needs to be counteracted or else SPOMs become far too strong
+- ~~The Gas Pump buff needs to be counteracted or else SPOMs become far too strong~~
 
-To compensate for the gas pump changes, this would need to cost 360W/kg or more to run.
+~~To compensate for the gas pump changes, this would need to cost 360W/kg or more to run.~~
 
 The Fix:
-*  -120W         -> -270W
+* ~~-120W         -> -270W~~
+*  -120W         -> -150W
 * -1000g/s       -> -750g/s water
 *  +888g/s @70+C -> +666g/s @50+C oxygen
 *  +112g/s @70+C ->  +84g/s @50+C hydrogen
 *  +1.25 kDTU/s  ->  +4 kDTU/s
 
-Additional functionality worth considering: electrolyzing saltwater outputs chlorine, hydrogen, and some other residue, possibly lime
+The funny thing is that this is STILL energy-positive despite reducing the conversion rate by 25%
+because it is equivalent to raising the power cost to 200W, and a 2-electrolyzer, 3-pump build has
+just over 360W of excess power. (that same build still has 200W excess after this change)
+
+Additional functionality worth considering:
+- electrolyzing saltwater outputs chlorine, hydrogen, and sand
+- electrolyzing brine outputs more chlorine and sand, less hydrogen
 
 ## Rust Deoxidizer
 
@@ -75,20 +82,24 @@ This building is *probably* fine as is.
 
 ## Wood Burner &check;
 
-Wood Burners are insanely inefficient. They produce too much CO2 and cost too much lumber.
+Wood Burners are inefficient. But they produce a lot of CO2.
 
 Fix:
-* -1200g/s -> -600g/s wood
-*  +170g/s ->  +30g/s CO2
-*  +9kDTU  ->  +4.5kDTU
+* -1200g/s -> -750g/s wood
+*  +170g/s -> +100g/s CO2
+*  +9kDTU  ->   +5kDTU
 
-With that change, they generate the same heat per watt as Coal Generators and are only slightly less resource efficient.
+Still not as good as coal, but it's still kinda viable.
+
+## Wood Burner &check;
 
 ## Large Power Transformer &cross;
 
 Generating 4kW is a little silly since conductive wire can only handle 2kW. But this is not unbalanced.
 
 Still, there's a couple mods that deal with this ideosyncracy already and I'd rather that be an opt-in feature via those mods.
+
+Maybe I should buff conductive wire instead?
 
 ## Airborne Critter Bait &check;
 
@@ -116,7 +127,15 @@ when the building is unpowered or disabled or the egg is removed.
 
 Uses way more power than the grill for some reason.
 
-The Fix: Power consumption reduced to 60W
+Changes:
+* Power Consumption reduced to 60W
+
+## Electric Grill &check;
+
+Surprisingly light on power usage. Let's bump that up just a bit.
+
+Changes:
+* Power Consumption increased to 120W
 
 ## Liquid Filter / Gas Filter / Solid Filter &check;
 
@@ -133,17 +152,23 @@ While you *could* increase the pumping speed to 1000g/s, this sucks out gas fast
 diffuse in a typical 1.8-2kg/tile pressure, and would result in pumps being unable to run at full
 speed in most cases.
 
-The solution then is to reduce its power requirement to 120W.
+*Balance Check*: is this actually unbalanced? Or is it just weird?
+Gas pumping sees SO MUCH use as it is, so does it really make sense to buff the building by making it cheaper to run?
+Mind the fact that pumping CO2 into space has the same cost per kg as carbon skimmers yet is still worth it for many builds.
+(5 skimmers + 1 sieve = 720W, removing 1.5kg/s CO2 - same as 3 gas pumps)
+
+~~The solution then is to reduce its power requirement to 120W.~~
 
 ## Mini Gas Pump &check;
 
-In accordance with the power cost reduction of the full size gas pump, reduce power requirement to 30W.
+~~In accordance with the power cost reduction of the full size gas pump, reduce power requirement to 30W.~~
 
 ## Algae Distiller &check;
 
 Held back by excessive heat generation (and heat multiplication) and slow output
 
 The fix:
+* -120W   -> +240W
 * -600g/s -> -3000g/s slime
 * +200g/s -> +1000g/s algae
 * +400g/s -> +2000g/s pwater
@@ -165,7 +190,7 @@ more akin to the water sieve, so it's crazy that this machine costs so much more
 Desalination via steam turbine is often a better option.
 
 Changes:
-* Power cost reduced from 480W to 120W
+* Power cost reduced from 480W to 240W
 * Heat output reduced from 8kDTU/s to 4kDTU/s
 * Empty chore time reduced from 90s to 30s
 
@@ -179,14 +204,14 @@ For power, they produce enough ethanol for a net 260J/kg, but wood burners produ
 Considering how inefficient wood burners are to begin with, this is a *terrible* deal.
 
 The fix:
-* -240W               -> -120W
-* +500g/s     @73.4+C -> +700g/s @50+C ethanol
-* +333.333g/s @93.4+C -> +200g/s @50+C polluted dirt
+* -240W               -> -60W
+* +500g/s     @73.4+C -> +600g/s @50+C ethanol
+* +333.333g/s @93.4+C -> +300g/s @50+C polluted dirt
 * +166.667g/s @93.4+C -> +100g/s @70+C CO2
 * +4.5kDTU/s          -> +2kDTU/s
 
-This increases the net power production from 260J/kg to 580J/kg, now 80J/kg more efficient than the
-buffed wood burners and 30J/kg more energy-dense than coal.
+This increases the net power production from 260J/kg to 540J/kg, now 140J/kg more efficient than the
+buffed wood burners and only 10J/kg less efficient than coal.
 
 ## Fertilizer Synthesizer
 
@@ -201,12 +226,11 @@ Maybe should require less power?
 
 The oil refinery has trouble being competitive with petroleum boilers for those who know the ways.
 
-The labor requirements and poor product efficiency make it unappealing to use.
+The labor requirements and poor product efficiency make it unappealing to use in late game builds.
 
-Changes:
+Proposed:
 - 5 kg/s -> 6 kg/s petroleum
 - 90 g/s -> 180 g/s natural gas
-- also produces 100 g/s refined carbon
 
 Alternatively: use the Asphalt Mod
 
@@ -261,7 +285,7 @@ Power rooms max size increased to 120 to make this building easier to take advan
 
 The fertilizer buff isn't worth it due to both labor requirements and resource usage.
 
-Changes:
+Proposed:
 - Increase Farmer's Touch buff duration to 3 cycles
 - Reduce buff applying time to 5s.
 - Increase production yield to 3 units.
@@ -286,8 +310,8 @@ This building doesn't transfer its heat to air fast enough and produces too litt
 so it is generally only good as a temporary quick and dirty heating solution...
 except that a kiln is more practical most of the time.
 
-* Decrease Power consumption to 60W
-* Increase heat output to 100 kDTU/s
+* Decrease Power consumption to 90W
+* Increase heat output to 80 kDTU/s (incidentally, this is the opposite of the AETN)
 * Increase overheat temperature to 175C
 
 ## Thermo Regulator &check;
@@ -346,6 +370,11 @@ Huge hassle to domesticate for minimal benefit. You would only ever do it to fle
 The ethanol requirements must be supported by an arbor tree farm, you need to keep the farm cool,
 and for all that hassle, you still have to combine it with pincha peppernut to get a decent morale.
 
+## Arbor Tree
+
+Arbor trees do not need to change, as the petroleum generator's reduced pwater output compensates
+for the ethanol distiller's ethanol output.
+
 ---
 
 # Ranching
@@ -373,30 +402,42 @@ The simplest way to get it is to add a disabled water cooler and a decorative pl
 Changes:
 - Art buff / plant nerf fixes the Decor 20+ item constraint being too easy to satisfy
 - Now requires light source
+- Reduce morale bonus of Great Hall to +3 and Mess Hall to +1
 
 Future Changes: (if possible)
 - Recreational building must be active for the requirement to be met (if possible)
 - Now requires ration box or fridge
-- Reduce morale bonus of Great Hall to +3 and Mess Hall to +1
 
-## Parks and Nature Reserves
+## Parks and Nature Reserves &check;
 
 The conditions are fine, but the bonus is too big considering some of the clever ways you can get
 these bonuses and trick dupes into walking through them.
 (e.g. put one in the kitchen, put one next to bedrooms/bathrooms, put one in the main shaft, etc...)
 
-Morale buff reduced to +1 and +3, respectively
+Morale buff reduced to +2 and +4, respectively
 
-## Barbecue
+## Barbecue &check;
 
 Barbecue provides +8 morale as a byproduct of ranching (which has other substantial benefits that justify ranching on their own.)
 
 Baby critters provide the same amount of meat as adults, making drowning chambers the most straightforward way to produce meat.
 
-The fix:
+Changed:
 - Barbecue food quality reduced from 3 to 2 (same as omelette, but more calorie efficient)
-- Baby critters (first 5 cycles of life) produce 1/4 the amount of meat as adults.
 - The food morale tweaks below
+
+Proposed:
+- Baby critters (first 5 cycles of life) produce 1/4 the amount of meat as adults.
+
+## Fish &check;
+
+Fish has a similar problem to barbecue if you properly cheese their reproduction mechanics,
+though they pretty much only get you food, lime, and radiation resistance.
+
+Changes:
+- Food quality of raw fish reduced to 1 (from 2)
+- Food quality of cooked fish reduced to 3 (from 4)
+
 
 ## Food Quality vs Morale Bonus
 

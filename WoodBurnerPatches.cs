@@ -9,7 +9,7 @@ using UnityEngine;
         public static void Postfix(BuildingDef __result)
         {
             __result.SelfHeatKilowattsWhenActive = 4.0f;
-            __result.ExhaustKilowattsWhenActive = 0.5f;
+            __result.ExhaustKilowattsWhenActive = 1.0f;
         }
     }
 
@@ -20,7 +20,7 @@ using UnityEngine;
         {
             var energyGenerator = go.GetComponent<EnergyGenerator>();
             // reduce wood consumption rate and CO2 production rate
-            energyGenerator.formula = EnergyGenerator.CreateSimpleFormula(WoodLogConfig.TAG, 0.6f, 720f, SimHashes.CarbonDioxide, 0.03f, false, new CellOffset(0, 1), Temp.C(95f));
+            energyGenerator.formula = EnergyGenerator.CreateSimpleFormula(WoodLogConfig.TAG, 0.750f, 720f, SimHashes.CarbonDioxide, 0.05f, false, new CellOffset(0, 1), Temp.C(95f));
         }
     }
 }

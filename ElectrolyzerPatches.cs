@@ -9,7 +9,7 @@ public class ElectrolyzerPatches
     {
         public static void Postfix(BuildingDef __result)
         {
-            __result.EnergyConsumptionWhenActive = 270f;
+            __result.EnergyConsumptionWhenActive = 150f;
             __result.ExhaustKilowattsWhenActive = 2.0f;
             __result.SelfHeatKilowattsWhenActive = 2.0f;
         }

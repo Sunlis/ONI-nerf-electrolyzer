@@ -9,7 +9,7 @@ class EthanolDistilleryPatches
     {
         public static void Postfix(BuildingDef __result)
         {
-            __result.EnergyConsumptionWhenActive = 120f;
+            __result.EnergyConsumptionWhenActive = 60f;
             __result.SelfHeatKilowattsWhenActive = 1.5f;
         }
     }
@@ -22,8 +22,8 @@ class EthanolDistilleryPatches
             ElementConverter elementConverter = go.GetComponent<ElementConverter>();
             elementConverter.outputElements = new ElementConverter.OutputElement[3]
             {
-                new ElementConverter.OutputElement(0.7f, SimHashes.Ethanol, 323.15f, storeOutput: true),
-                new ElementConverter.OutputElement(0.2f, SimHashes.ToxicSand, 323.15f, storeOutput: true),
+                new ElementConverter.OutputElement(0.6f, SimHashes.Ethanol, 323.15f, storeOutput: true),
+                new ElementConverter.OutputElement(0.3f, SimHashes.ToxicSand, 323.15f, storeOutput: true),
                 new ElementConverter.OutputElement(0.1f, SimHashes.CarbonDioxide, 343.15f)
             };
         }
