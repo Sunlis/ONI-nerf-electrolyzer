@@ -4,9 +4,10 @@ Rebalance the game, duh!
 
 ---
 
-- &check; in a heading indicates the rebalance has been implemented.
-- &bull; indicates it is in progress.
-- &cross; indicates that the balancing issues are opt-in via other recommended mods.
+- ❔ in a heading indicates that some rebalance is needed, but it's unclear what that should be.
+- ✔️ in a heading indicates the rebalance has been implemented.
+- 🌙 indicates that some of the rebalance has been implemented, but some elements that I want to add are not yet implemented.
+- ❌ indicates that, after careful consideration, the building was deemed to be balanced or that "balancing" functionality should be left to other mods.
 
 # Analysis of Problematic Buildings
 
@@ -17,15 +18,16 @@ Almost nobody ever powers these, so I see a couple of sensible ways to rework th
 - holding items is now free, with *dispensing* items requiring power instead
 - get rid of the power input entirely
 
-## Smart Storage Bin &check;
+## Smart Storage Bin ✔️
 
-Problems:
-- Weight plates are almost always a better option since they do not require power.
-    - remove power requirement.
-- Requiring refined metal is excessive for what these do
-    - allow them to be built with metal ores
+Weight plates are almost always a better option since they do not require power.
+Requiring refined metal is excessive for what these do
 
-## Algae Terrarium &check;
+Changes:
+* no longer requires power
+* now built with metal ore
+
+## Algae Terrarium ✔️
 
 This is an interesting building that is held back primarily by its labor requirements and the fact that it never overpressurizes.
 
@@ -38,7 +40,7 @@ The lighting efficiency bonus might be raised to 15%, but 10% is pretty ok
 
 I'm considering making this *produce* algae under light and presence of CO2, but I suspect that is overpowered.
 
-## Electrolyzer &check;
+## Electrolyzer ✔️
 
 Electrolyzers are the main event when it comes to oxygen production.
 
@@ -56,12 +58,8 @@ Problems:
     through a block of metal tiles or something like that.
 - Electrolyzer rooms overpressure too easily. It's very difficult to run a 100% uptime electrolyzer build, even in space.
     - That is unless you do a hydra, which I don't particularly like because it's cheesy.
-- ~~The Gas Pump buff needs to be counteracted or else SPOMs become far too strong~~
 
-~~To compensate for the gas pump changes, this would need to cost 360W/kg or more to run.~~
-
-The Fix:
-* ~~-120W         -> -270W~~
+Changes:
 *  -120W         -> -150W
 * -1000g/s       -> -750g/s water
 *  +888g/s @70+C -> +666g/s @50+C oxygen
@@ -76,32 +74,57 @@ Additional functionality worth considering:
 - electrolyzing saltwater outputs chlorine, hydrogen, and sand
 - electrolyzing brine outputs more chlorine and sand, less hydrogen
 
-## Rust Deoxidizer
+## Rust Deoxidizer ❔
 
-This building is *probably* fine as is.
+This building needs further analysis, but I suspect it is fine as-is.
 
-## Wood Burner &check;
+## Wood Burner ✔️
 
-Wood Burners are inefficient. But they produce a lot of CO2.
+Wood Burners are inefficient and they produce a lot of CO2. The simple CO2 production is quite helpful.
 
-Fix:
+Changes:
 * -1200g/s -> -750g/s wood
-*  +170g/s -> +100g/s CO2
+*  +170g/s -> +100g/s CO2 @
 *  +9kDTU  ->   +5kDTU
 
 Still not as good as coal, but it's still kinda viable.
 
-## Wood Burner &check;
+## Petroleum Generator ✔️
 
-## Large Power Transformer &cross;
+The ethanol distiller change makes domestic arbor trees water-positive. No bueno.
+
+Changes:
+* +750g/s -> +600g/s pwater
+
+This incidentally also makes petroleum boilers no longer water positive (they now have 10% loss)
+
+## Large Power Transformer ❌
 
 Generating 4kW is a little silly since conductive wire can only handle 2kW. But this is not unbalanced.
 
 Still, there's a couple mods that deal with this ideosyncracy already and I'd rather that be an opt-in feature via those mods.
 
-Maybe I should buff conductive wire instead?
+## Conductive Wire ✔️
 
-## Airborne Critter Bait &check;
+Dupes like it better *and* it handles twice as much wattage. Except I rarely find myself upgrading the wires because
+it doesn't feel like enough of an improvement to bother with refining the metal for it.
+
+However, 2kW is sorta hard to work with at times. You generally can't combine two high-wattage buildings
+on the same circuit when using conductive wire, for instance one building requiring 1200W can't *quite*
+share a circuit with one requiring 960W.
+
+Also consider that the heavy watt variant handles 2.5x as much wattage as its counterpart.
+
+The question is whether this is unbalanced or just mildly annoying.
+
+Proposal:
+* Increase wattage rating to 2.5kW
+
+What's fun about this change is that it adds a tradeoff to conductive wire where you can choose to:
+- under-provision the wire to 2kW using 2 small transformers (you don't get the full wattage it's capable of)
+- over-provision the wire to 4kW using a large transformer, but risking overloads unless you keep the potential load below 2.5kW
+
+## Airborne Critter Bait ✔️
 
 In most cases, you can easily trick ranchers into wrangling airborne critters via a Critter Drop-Off
 
@@ -109,7 +132,7 @@ Costing metal ore is excessive for what little value it provides.
 
 This building now requires raw minerals instead.
 
-## Critter Trap / Fish Trap &check;
+## Critter Trap / Fish Trap ✔️
 
 Consuming plastic is absolutely insane since you'll have a rancher long before you'll ever have plastic.
 
@@ -120,24 +143,31 @@ Both buildings now require raw minerals instead.
 Incubators are generally not worth powering unless you cheese the Lullabied buff with a timer sensor,
 making the tradeoff of powering the building less interesting.
 
-Power use should be reduced tremendously (10-60W), but the Lullabied buff is dropped immediately
-when the building is unpowered or disabled or the egg is removed.
+Proposal:
+* Reduce power consumption to 30W
+* The Lullabied buff is lost when the building is unpowered or disabled or the egg is removed from the incubator.
+    - as an interesting side effect, this can be used to grind up a rancher's Husbandry (neat!)
+* The Lullabied buff duration is now affected by the Husbandry stat.
 
-## Microbe Musher &check;
+## Grooming Station
 
-Uses way more power than the grill for some reason.
+I just want to fix the Husbandry skill bug (if possible) because Klei can't be bothered to fix it themselves.
+
+## Microbe Musher ✔️
+
+Uses way more power than the grill for some reason. Even though it's a zero-tech building.
 
 Changes:
 * Power Consumption reduced to 60W
 
-## Electric Grill &check;
+## Electric Grill ✔️
 
 Surprisingly light on power usage. Let's bump that up just a bit.
 
 Changes:
 * Power Consumption increased to 120W
 
-## Liquid Filter / Gas Filter / Solid Filter &check;
+## Liquid Filter / Gas Filter / Solid Filter ✔️
 
 These can be simulated less expensively with a shutoff valve and an element sensor, provided
 that the substance flows at full speed
@@ -145,40 +175,33 @@ that the substance flows at full speed
 Solution: reduce power to 20W. Bringing them down to 10W sounds reasonable at face value,
 but the convenience factor and better handling of edge cases is worth some power, just not 110W.
 
-## Gas Pump &check;
+## Gas Pump ❌
 
 Gas pumps cost the same amount of power as liquid pumps but only fill gas vents halfway.
-While you *could* increase the pumping speed to 1000g/s, this sucks out gas faster than it can
-diffuse in a typical 1.8-2kg/tile pressure, and would result in pumps being unable to run at full
-speed in most cases.
 
-*Balance Check*: is this actually unbalanced? Or is it just weird?
-Gas pumping sees SO MUCH use as it is, so does it really make sense to buff the building by making it cheaper to run?
-Mind the fact that pumping CO2 into space has the same cost per kg as carbon skimmers yet is still worth it for many builds.
-(5 skimmers + 1 sieve = 720W, removing 1.5kg/s CO2 - same as 3 gas pumps)
+My first instinct was to buff this by halving its power consumption and I even tried it in early builds of this mod,
+but the more I thought about it, the more I realized it was actually very unbalanced to do so.
 
-~~The solution then is to reduce its power requirement to 120W.~~
+Gas pumping sees SO MUCH use as it is, so it doesn't really make sense to buff the building by making it cheaper to run.
+Mind the fact that pumping CO2 into space has the same cost per kg as carbon skimmers yet is still the preferred option for many players.
+(5 skimmers + 1 sieve = 720W, removing 1.5kg/s CO2 - same as 3 gas pumps) Cutting the cost of gas pumps would be an indirect nerf to carbon skimmers.
 
-## Mini Gas Pump &check;
+## Algae Distiller ✔️
 
-~~In accordance with the power cost reduction of the full size gas pump, reduce power requirement to 30W.~~
-
-## Algae Distiller &check;
-
-Held back by excessive heat generation (and heat multiplication) and slow output
+Held back by excessive heat generation (mostly due to the SHC of output being higher than that of the input) and slow output
 
 The fix:
-* -120W   -> +240W
+* -120W   -> -240W
 * -600g/s -> -3000g/s slime
 * +200g/s -> +1000g/s algae
 * +400g/s -> +2000g/s pwater
 * +1.5kDTU/s -> +1kDTU/s
 
-## Compost
+## Compost ❔
 
 Produces too much heat and requires too much labor
 
-## Desalinator &check;
+## Desalinator ✔️
 
 Too much heat generation, power cost too high, emptying the salt takes too long.
 
@@ -187,14 +210,12 @@ It's a necessary evil when you have salt water and few other power sources but j
 It's interesting to note that IRL submarines filter saltwater for their electrolyzers using something
 more akin to the water sieve, so it's crazy that this machine costs so much more power than the sieve.
 
-Desalination via steam turbine is often a better option.
-
 Changes:
 * Power cost reduced from 480W to 240W
 * Heat output reduced from 8kDTU/s to 4kDTU/s
 * Empty chore time reduced from 90s to 30s
 
-## Ethanol Distiller &check;
+## Ethanol Distiller ✔️
 
 These simply aren't worth the effort for the ethanol. You probably "want" the polluted dirt or CO2.
 
@@ -213,12 +234,12 @@ The fix:
 This increases the net power production from 260J/kg to 540J/kg, now 140J/kg more efficient than the
 buffed wood burners and only 10J/kg less efficient than coal.
 
-## Fertilizer Synthesizer
+## Fertilizer Synthesizer ❔
 
 Output more natural gas?
 Process more matter per second?
 
-## Glass Forge
+## Glass Forge ❔
 
 Maybe should require less power?
 
@@ -229,57 +250,58 @@ The oil refinery has trouble being competitive with petroleum boilers for those 
 The labor requirements and poor product efficiency make it unappealing to use in late game builds.
 
 Proposed:
-- 5 kg/s -> 6 kg/s petroleum
-- 90 g/s -> 180 g/s natural gas
-
-Alternatively: use the Asphalt Mod
-
-Alternatively: reduce petroleum boiling efficiency by introducing a residue such as bitumen or hydrogen gas
+* 5 kg/s -> 6 kg/s petroleum
+* 90 g/s -> 180 g/s natural gas
 
 ## Sludge Press
 
 Requires too much labor.
 
-Fix: Crafting time reduced to 10s
+Proposed:
+* Crafting time reduced to 10s
 
 Potentially impossible Fix: remove labor requirement with stats:
 * -3000g/s mud/pmud
 * +1200g/s dirt/pdirt
 * +1800g/s water/pwater
 
-## Medical Buildings &cross;
+## Medical Buildings ❌
 
 Germs and disease are kind of irrelevant. This is ok because the real engineering challenges are elsewhere.
 
 There are mods and difficulty settings to address disease, so I will leave these buildings untouched.
 
-## Art Pieces &check;
+## Art Pieces ✔️
 
 Morale bonus is too low. Plants are better. Little reason to skill up artists.
 
 Increase decor bonuses from 5/10/15 to 15/30/45
 
-## Decorative Plants &check;
+## Decorative Plants ✔️
 
 Bonus is too high, making it far too easy to get the great hall bonus.
 
 Lower decor for all decorative plants except tranquil toe and sporechid to +15
 
-Tranquil Toes have an interesting tradeoff because they require such a low temperature (which duplicants don't like very much)
+Tranquil Toes can stay at +25 because they require such a low temperature (which duplicants don't like very much)
 
-Sporechids are interesting because they are high-risk-high-reward
+Sporechids are interesting because they are high-risk-high-reward plants.
 
-## Recreational Buildings
+## Recreational Buildings ❔
 
 Morale bonuses and buffs will be reworked to better match their power/ingredient requirements.
+
+Needs further in-depth analysis
 
 ## Power Control Station
 
 Costs too much metal per microchip to be worth the bother. Except with lead.
 
-Require 10kg sand + 500g refined metal, but disallow lead
-
-Power rooms max size increased to 120 to make this building easier to take advantage of.
+Proposed:
+- Require 10kg sand + 500g refined metal
+    - Alternatively: increase production yield to 2 units?
+- Lead recipe removed
+- Power rooms max size increased to 120 to make this building easier to take advantage of.
 
 ## Farm Station
 
@@ -304,7 +326,7 @@ The fix: add a liquid input and output so you can use it instead of chlorine dec
 
 Except that really doesn't matter.
 
-## Space Heater &check;
+## Space Heater ✔️
 
 This building doesn't transfer its heat to air fast enough and produces too little heat per Watt,
 so it is generally only good as a temporary quick and dirty heating solution...
@@ -314,7 +336,7 @@ except that a kiln is more practical most of the time.
 * Increase heat output to 80 kDTU/s (incidentally, this is the opposite of the AETN)
 * Increase overheat temperature to 175C
 
-## Thermo Regulator &check;
+## Thermo Regulator ✔️
 
 This building is half as power efficient as aquatuners per C, which is too large of a tradeoff for its ease of use.
 
@@ -333,7 +355,7 @@ Alternative: change cooling factor to a fixed kDTU/kg instead of a fixed tempera
 - This is a massive nerf to supercoolant, however...
 
 
-## Automation
+## Automation ❌
 
 No complaints here. Works as expected.
 
@@ -341,7 +363,7 @@ No complaints here. Works as expected.
 
 No issues here
 
-## Radiation Lamp
+## Radiation Lamp ❔
 
 There's basically no reason to use this building, ever.
 
@@ -370,7 +392,7 @@ Huge hassle to domesticate for minimal benefit. You would only ever do it to fle
 The ethanol requirements must be supported by an arbor tree farm, you need to keep the farm cool,
 and for all that hassle, you still have to combine it with pincha peppernut to get a decent morale.
 
-## Arbor Tree
+## Arbor Tree ❌
 
 Arbor trees do not need to change, as the petroleum generator's reduced pwater output compensates
 for the ethanol distiller's ethanol output.
@@ -394,7 +416,7 @@ I am uncertain whether I want to make starvation ranching unviable as a food sou
 
 There are a lot of no-brainer sources of easy morale that make it far too easy to skill up your dupes
 
-## Great Hall &bull;
+## Great Hall 🌙
 
 The Great Hall bonus is far too easy to obtain for its incredible +6 morale bonus.
 The simplest way to get it is to add a disabled water cooler and a decorative plant to a mess hall.
@@ -404,11 +426,11 @@ Changes:
 - Now requires light source
 - Reduce morale bonus of Great Hall to +3 and Mess Hall to +1
 
-Future Changes: (if possible)
+Proposed: (if possible)
 - Recreational building must be active for the requirement to be met (if possible)
 - Now requires ration box or fridge
 
-## Parks and Nature Reserves &check;
+## Parks and Nature Reserves ✔️
 
 The conditions are fine, but the bonus is too big considering some of the clever ways you can get
 these bonuses and trick dupes into walking through them.
@@ -416,7 +438,7 @@ these bonuses and trick dupes into walking through them.
 
 Morale buff reduced to +2 and +4, respectively
 
-## Barbecue &check;
+## Barbecue ✔️
 
 Barbecue provides +8 morale as a byproduct of ranching (which has other substantial benefits that justify ranching on their own.)
 
@@ -429,17 +451,16 @@ Changed:
 Proposed:
 - Baby critters (first 5 cycles of life) produce 1/4 the amount of meat as adults.
 
-## Fish &check;
+## Fish ✔️
 
 Fish has a similar problem to barbecue if you properly cheese their reproduction mechanics,
 though they pretty much only get you food, lime, and radiation resistance.
 
 Changes:
 - Food quality of raw fish reduced to 1 (from 2)
-- Food quality of cooked fish reduced to 3 (from 4)
 
 
-## Food Quality vs Morale Bonus
+## Food Quality vs Morale Bonus ✔️
 
 Food morale is out of control. The morale curve is just crazy and needs to be toned down:
 

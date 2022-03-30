@@ -9,6 +9,7 @@ class AlgaeDistilleryPatches
     {
         public static void Postfix(BuildingDef __result)
         {
+            __result.EnergyConsumptionWhenActive = 240f;
             __result.ExhaustKilowattsWhenActive = 0.25f;
             __result.SelfHeatKilowattsWhenActive = 0.75f;
         }

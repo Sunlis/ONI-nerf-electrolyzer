@@ -5,80 +5,107 @@ Suggestions and bug reports are welcome. Forking this mod is fine with me, just 
 
 [h1]Changes[/h1]
 
-Smart Storage Bin
-* No longer requires power
-* Can now be built with metal ore
+Smart Storage Bin ▲
+▲ No longer requires power
+▲ Can now be built with metal ore
 
-Algae Terrarium
-* -300 g/s -> -50 g/s water
-* +290 g/s -> +40 g/s pwater
+Algae Terrarium ▲
+▲ Water consumption rate decreased to 50g/s (from 300g/s)
+▼ Polluted water consumption rate decreased to 40g/s (from 290g/s)
 
-Electrolyzer
-*  -120W         -> -270W
-* -1000g/s       -> -750g/s water
-*  +888g/s @70+C -> +666g/s @50+C oxygen
-*  +112g/s @70+C ->  +84g/s @50+C hydrogen
-*  +1.25 kDTU/s  ->  +4 kDTU/s
+Electrolyzer ▼
+▼ Power consumption increased to 150W (from 120W)
+▼ Overall product conversion rate reduced by 25%
+▲ Minimum output temperature reduced to 50C
+▼ Heat production increased to 4 kDTU/s (was 1.25kDTU/s)
 
-(this is not as big of a nerf as it looks like since a lot of this compensates for gas pump changes)
+(Optimized SPOMs are *still* energy-positive after this change, believe it or not. Most of the energy loss comes from the pumps.)
 
-Wood Burner
-* -1200g/s -> -600g/s wood
-*  +170g/s ->  +30g/s CO2
-*  +9kDTU  ->  +4.5kDTU
+Wood Burner ▲
+▲ Wood consumption rate reduced to 750g/s (from 1200g/s)
+= Carbon dioxide production rate decreased to 100g/s (from 170g/s)
+▲ Heat output reduced to 5kDTU/s (from 9kDTU/s)
 
-Airborne Critter Bait
-* Now only requires minerals
+Petroleum Generator ▼
+▼ Polluted water output decreased to +600g/s (from 750g/s)
 
-Critter / Fish Trap
-* Now only requires raw minerals instead of plastic
+Conductive Wire ▲
+▲ Wattage rating increased to 2500W
 
-Microbe Musher
-* Power consumption reduced to 60W
+Airborne Critter Bait ▲
+▲ Now requires minerals instead of metal ore
 
-Gas / Liquid / Solid Filters
-* Power consumption reduced to 20W
+Critter / Fish Trap ▲
+▲ Now requires raw minerals instead of plastic
 
-Gas Pump
-* Power consumption reduced to 120W
+Microbe Musher ▲
+▲ Power consumption reduced to 60W (from 240W)
 
-Mini Gas Pump
-* Power consumption reduced to 30W
+Electric Grill ▼
+▼ Power consumption increased to 120W (from 60W)
 
-Algae Distiller
-* -600g/s -> -3000g/s slime
-* +200g/s -> +1000g/s algae
-* +400g/s -> +2000g/s pwater
-* +1.5kDTU/s -> +1kDTU/s
+Barbecue ▼
+▼ Food quality decreased to 2 (from 3)
 
-Desalinator
-* -480W    -> -120W
-* +8kDTU/s -> +4kDTU/s
-* Empty chore time reduced from 90s to 30s
+Raw Fish ▼
+▼ Food quality decreased to 1 (from 2)
 
-Ethanol Distiller
-* -240W               -> -120W
-* +500g/s     @73.4+C -> +700g/s @50+C ethanol
-* +333.333g/s @93.4+C -> +200g/s @50+C polluted dirt
-* +166.667g/s @93.4+C -> +100g/s @70+C CO2
-* +4.5kDTU/s          -> +2kDTU/s
+Gas / Liquid / Solid Filters ▲
+▲ Power consumption reduced to 20W
 
-Jumping Joya, Mirth Leaf, Bluff Briar
-* Decor bonus reduced to +15, radius is still 4 tiles
+Algae Distiller ▲
+▼ Power consumption increased to 240W (from 120W)
+▲ Overall product conversion rate increased by 400% (5x speed)
+▲ Heat output reduced to 1kDTU/s (from 1.5kDTU/s)
 
-Artwork
-* Decor bonus increased to +15/30/45 (triple what it was before)
+Desalinator ▲
+▲ Power consumption decreased to 240W (from 480W)
+▲ Heat output decreased to 4kDTU/s (from 8kDTU/s)
+▲ Empty chore time reduced from to 30s (from 90s)
 
-Space Heater
-* Power consumption reduced to 60W
-* Heat output increased to 100 kDTU/s
-* Overheat temperature increased to 175C
+Ethanol Distiller ▲
+▲ Power consumption reduced to 60W
+▲ Ethanol output increased to 600g/s (from 500g/s)
+▲ Ethanol minimum output temperature reduced to 50C
+▼ Polluted dirt output reduced to 300g/s (from 333.333g/s)
+▼ Polluted dirt minimum output temperature reduced to 50C
+= Carbon dioxide output reduced to 100g/s (from 166.667g/s)
+▲ Carbon dioxide minimum output temperature reduced to 70C
+▲ Heat output reduced to 2kDTU/s (from 4.5kDTU/s)
 
-Thermo Regulator
-* Cooling factor increased to 38C
+Jumping Joya, Mirth Leaf, Bluff Briar ▼
+▼ Decor bonus reduced to +15 (radius is still 4 tiles)
 
-Great Hall
-* Now requires a light source
+Artwork ▲
+▲ Decor bonus increased to +15/30/45 (from +5/10/15)
+
+Space Heater ▲
+▲ Power consumption reduced to 90W
+▲ Heat output increased to 80 kDTU/s
+▲ Overheat temperature increased to 175C
+
+Thermo Regulator ▲
+▲ Cooling factor increased to 38C
+
+Mess Hall ▼
+▼ Morale bonus decreased to +1
+
+Great Hall ▼
+▼ Now requires a light source
+▼ Morale bonus decreased to +3
+
 (the artwork buff + plant decor nerf also acts as a nerf to great halls)
+
+Park ▼
+▼ Morale bonus decreased to +2
+
+Nature Reserve ▼
+▼ Morale bonus decreased to +4
+
+Food Morale Bonuses ▼
+▼ Food Quality 2 bonus decreased to +2 (from 4)
+▼ Food Quality 3 bonus decreased to +4 (from 8)
+▼ Food Quality 4 bonus decreased to +7 (from 12)
+▼ Food Quality 5+ bonus decreased to +10 (from 16)
 
 More changes to come in future versions!

@@ -62,7 +62,6 @@
   <ItemGroup>
     <Compile Include="AlgaeDistilleryPatch.cs" />
     <Compile Include="AlgaeTerrarriumPatches.cs" />
-    <Compile Include="ArborTreePatches.cs" />
     <Compile Include="ArtDecorPatch.cs" />
     <Compile Include="CritterTrapsAndBaitPatches.cs" />
     <Compile Include="DesalinatorPatches.cs" />
@@ -74,12 +73,12 @@
     <Compile Include="PlantDecorPatches.cs" />
     <Compile Include="RoomTypesPatches.cs" />
     <Compile Include="SmartStoragePatches.cs" />
-    <Compile Include="GasPumpPatches.cs" />
     <Compile Include="ElectrolyzerPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpaceHeaterPatches.cs" />
     <Compile Include="ThermoRegulatorPatches.cs" />
     <Compile Include="Util.cs" />
+    <Compile Include="WirePatches.cs" />
     <Compile Include="WoodBurnerPatches.cs" />
   </ItemGroup>
   <ItemGroup>
