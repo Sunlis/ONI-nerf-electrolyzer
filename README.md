@@ -11,12 +11,15 @@ Rebalance the game, duh!
 
 # Analysis of Problematic Buildings
 
-## Automatic Dispenser
+## Automatic Dispenser ✔️
 
-The primary use case of this building is to remain unpowered and dispense immediately.
-Almost nobody ever powers these, so I see a couple of sensible ways to rework this building:
-- holding items is now free, with *dispensing* items requiring power instead
-- get rid of the power input entirely
+The primary use case of this building is to remain dispense contents immediately.
+The problem is that this behavior is the one that is free, so the building remains unpowered in almost every use case.
+
+Changes:
+* Dispensing items now requires power
+* Now only consumes power when dispensing
+* Power consumption increased to 120W (from 60W)
 
 ## Smart Storage Bin ✔️
 
@@ -115,14 +118,17 @@ share a circuit with one requiring 960W.
 
 Also consider that the heavy watt variant handles 2.5x as much wattage as its counterpart.
 
-The question is whether this is unbalanced or just mildly annoying.
+The question is whether this is actually unbalanced or just mildly annoying.
 
-Proposal:
+The only logical argument I can think of for why conductive should be buffed is that the refined
+metal is better spent on the power spine. I'm not sure that's convincing.
+
+Change:
 * Increase wattage rating to 2.5kW
 
 What's fun about this change is that it adds a tradeoff to conductive wire where you can choose to:
-- under-provision the wire to 2kW using 2 small transformers (you don't get the full wattage it's capable of)
-- over-provision the wire to 4kW using a large transformer, but risking overloads unless you keep the potential load below 2.5kW
+- under-provision the wire to 2kW using 2 small transformers, but you don't get the full wattage it's capable of carrying
+- over-provision the wire to 4kW using a large transformer, but risking overloads unless you keep the potential load at or below 2.5kW
 
 ## Airborne Critter Bait ✔️
 
@@ -138,16 +144,15 @@ Consuming plastic is absolutely insane since you'll have a rancher long before y
 
 Both buildings now require raw minerals instead.
 
-## Incubator
+## Incubator ✔️
 
 Incubators are generally not worth powering unless you cheese the Lullabied buff with a timer sensor,
 making the tradeoff of powering the building less interesting.
 
-Proposal:
-* Reduce power consumption to 30W
+Changes:
+* Reduce power consumption to 60W
 * The Lullabied buff is lost when the building is unpowered or disabled or the egg is removed from the incubator.
     - as an interesting side effect, this can be used to grind up a rancher's Husbandry (neat!)
-* The Lullabied buff duration is now affected by the Husbandry stat.
 
 ## Grooming Station
 
@@ -250,8 +255,10 @@ The oil refinery has trouble being competitive with petroleum boilers for those 
 The labor requirements and poor product efficiency make it unappealing to use in late game builds.
 
 Proposed:
-* 5 kg/s -> 6 kg/s petroleum
+* 5 kg/s -> 6 kg/s petroleum (this would compensate for the generator nerf in terms of water, but not in terms of power)
 * 90 g/s -> 180 g/s natural gas
+
+The question then is if this is really necessary.
 
 ## Sludge Press
 
@@ -298,25 +305,24 @@ Needs further in-depth analysis
 Costs too much metal per microchip to be worth the bother. Except with lead.
 
 Proposed:
-- Require 10kg sand + 500g refined metal
-    - Alternatively: increase production yield to 2 units?
+- Increase production yield to 3 units
 - Lead recipe removed
 - Power rooms max size increased to 120 to make this building easier to take advantage of.
 
 ## Farm Station
 
-The fertilizer buff isn't worth it due to both labor requirements and resource usage.
+The fertilizer buff isn't worth it in most cases due to both labor requirements and resource usage.
+
+I've seen Francis John use it for mutating plants, but that's about it.
 
 Proposed:
 - Increase Farmer's Touch buff duration to 3 cycles
-- Reduce buff applying time to 5s.
-- Increase production yield to 3 units.
 
-## Ice-E Fan
+## Ice-E Fan ❔
 
 I don't know what to do with this building. All I know is that it's bad.
 
-## Ore Scrubber
+## Ore Scrubber ❔
 
 The main problem with this building is that it only applies to things that duplicants interact with manually
 
@@ -361,7 +367,7 @@ No complaints here. Works as expected.
 
 ## Rocketry
 
-No issues here
+Needs further analysis. Tweaks would be different in base game vs spaced out.
 
 ## Radiation Lamp ❔
 

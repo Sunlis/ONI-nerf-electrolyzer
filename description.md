@@ -1,9 +1,19 @@
 This is an all-in-one mod that aims to rebalance the game.
 
 This is a work in progress. View progress and balancing notes at https://github.com/Beefster09/ONI-Rebalancing-Mod
+
 Suggestions and bug reports are welcome. Forking this mod is fine with me, just ask first and give credit when you do.
 
+It [i]should[/i] be compatible with the base game, but I have only tested it with spaced out and can't guarantee it won't crash on startup.
+
 [h1]Changes[/h1]
+
+Automatic Dispenser ▼
+▼ Dispensing items now requires power
+▲ Now only consumes power when dispensing
+▼ Power consumption increased to 120W (from 60W)
+
+[i]note that dispensers that existed in your saves prior to this patch will not dispense their items[/i]
 
 Smart Storage Bin ▲
 ▲ No longer requires power
@@ -23,7 +33,7 @@ Electrolyzer ▼
 
 Wood Burner ▲
 ▲ Wood consumption rate reduced to 750g/s (from 1200g/s)
-= Carbon dioxide production rate decreased to 100g/s (from 170g/s)
+● Carbon dioxide production rate decreased to 100g/s (from 170g/s)
 ▲ Heat output reduced to 5kDTU/s (from 9kDTU/s)
 
 Petroleum Generator ▼
@@ -37,6 +47,10 @@ Airborne Critter Bait ▲
 
 Critter / Fish Trap ▲
 ▲ Now requires raw minerals instead of plastic
+
+Incubator ●
+▲ Reduce power consumption to 60W
+▼ The Lullabied buff is lost when the building is unpowered or disabled or the egg is removed from the incubator.
 
 Microbe Musher ▲
 ▲ Power consumption reduced to 60W (from 240W)
@@ -69,7 +83,7 @@ Ethanol Distiller ▲
 ▲ Ethanol minimum output temperature reduced to 50C
 ▼ Polluted dirt output reduced to 300g/s (from 333.333g/s)
 ▼ Polluted dirt minimum output temperature reduced to 50C
-= Carbon dioxide output reduced to 100g/s (from 166.667g/s)
+● Carbon dioxide output reduced to 100g/s (from 166.667g/s)
 ▲ Carbon dioxide minimum output temperature reduced to 70C
 ▲ Heat output reduced to 2kDTU/s (from 4.5kDTU/s)
 

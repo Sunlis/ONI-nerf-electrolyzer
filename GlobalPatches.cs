@@ -1,9 +1,15 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
 using Klei.AI;
+using KMod;
 
-class GlobalPatches
+class GlobalPatches : UserMod2
 {
+    public override void OnLoad(Harmony harmony)
+    {
+        CookingPatches.TweakFoodValues();
+        base.OnLoad(harmony);
+    }
 
     public static Dictionary<string, int> MoraleChanges = new Dictionary<string, int>()
     {
@@ -23,8 +29,6 @@ class GlobalPatches
     {
         static void Postfix()
         {
-            CookingPatches.TweakFoodValues();
-
             // Tweak effect values as appropriate
             Debug.Log("Tweaking Effects");
             var effects = Db.Get().effects;
