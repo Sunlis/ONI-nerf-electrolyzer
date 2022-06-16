@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using Database;
 
 class CritterTrapsAndBaitPatches
 {
@@ -27,5 +28,19 @@ class CritterTrapsAndBaitPatches
         {
             __result.MaterialCategory = TUNING.MATERIALS.ALL_MINERALS;
         }
+    }
+
+    public static void TweakTrapTechs()
+    {
+        var ranching = Db.Get().Techs.Get("Ranching");
+        var animalControl = Db.Get().Techs.Get("AnimalControl");
+
+        // move traps to earlier tier
+        ranching.AddUnlockedItemIDs("CreatureTrap", "FishTrap");
+        animalControl.RemoveUnlockedItemIDs("CreatureTrap", "FishTrap");
+
+        // move bait to later tier
+        ranching.RemoveUnlockedItemIDs("FlyingCreatureBait");
+        animalControl.AddUnlockedItemIDs("FlyingCreatureBait");
     }
 }

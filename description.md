@@ -13,11 +13,14 @@ Automatic Dispenser ▼
 ▲ Now only consumes power when dispensing
 ▼ Power consumption increased to 120W (from 60W)
 
-[i]note that dispensers that existed in your saves prior to this patch will not dispense their items[/i]
+[i]note that unpowered dispensers that existed in your saves prior to enabling this mod will behave the old way.[/i]
 
 Smart Storage Bin ▲
 ▲ No longer requires power
 ▲ Can now be built with metal ore
+
+Gas Reservoir ▲
+▲ Storage capacity increased to 750kg
 
 Algae Terrarium ▲
 ▲ Water consumption rate decreased to 50g/s (from 300g/s)
@@ -26,8 +29,6 @@ Algae Terrarium ▲
 Electrolyzer ▼
 ▼ Power consumption increased to 150W (from 120W)
 ▼ Overall product conversion rate reduced by 25%
-▲ Minimum output temperature reduced to 50C
-▼ Heat production increased to 4 kDTU/s (was 1.25kDTU/s)
 
 (Optimized SPOMs are *still* energy-positive after this change, believe it or not. Most of the energy loss comes from the pumps.)
 
@@ -91,7 +92,19 @@ Jumping Joya, Mirth Leaf, Bluff Briar ▼
 ▼ Decor bonus reduced to +15 (radius is still 4 tiles)
 
 Artwork ▲
-▲ Decor bonus increased to +15/30/45 (from +5/10/15)
+▲ Decor bonus increased to +10/15/20 (from +5/10/15)
+
+Soda Fountain ▼
+▼ Morale bonus decreased to +2
+
+Juicer ▼
+▼ Morale bonus decreased to +3
+
+Jukebot ▲
+▲ Morale bonus increased to +3
+
+Arcade Cabinet ▲
+▲ Morale bonus increased to +4
 
 Space Heater ▲
 ▲ Power consumption reduced to 90W
@@ -99,7 +112,7 @@ Space Heater ▲
 ▲ Overheat temperature increased to 175C
 
 Thermo Regulator ▲
-▲ Cooling factor increased to 38C
+C Cooling factor increased to 38C
 
 Mess Hall ▼
 ▼ Morale bonus decreased to +1
@@ -115,6 +128,9 @@ Park ▼
 
 Nature Reserve ▼
 ▼ Morale bonus decreased to +4
+
+Bedroom ▲
+▲ Morale bonus increased to +3
 
 Food Morale Bonuses ▼
 ▼ Food Quality 2 bonus decreased to +2 (from 4)

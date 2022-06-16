@@ -21,11 +21,11 @@ class PlantDecorPatches
     {
         public static void Postfix(GameObject __result)
         {
-            ChangeDecorTo(__result, new EffectorValues(10, 4)); 
+            ChangeDecorTo(__result, new EffectorValues(10, 3)); 
         }
     }
 
-    // Mirth Leaf (and possibly also Bliss Burst)
+    // Mirth Leaf
     [HarmonyPatch(typeof(LeafyPlantConfig), nameof(LeafyPlantConfig.CreatePrefab))]
     class MirthLeaf_CreatePrefab_Patch
     {
@@ -35,9 +35,29 @@ class PlantDecorPatches
         }
     }
 
-    // Bluff Briar (and possibly also Mellow Mallow)
+    // Bluff Briar
     [HarmonyPatch(typeof(PrickleGrassConfig), nameof(PrickleGrassConfig.CreatePrefab))]
     class BluffBriar_CreatePrefab_Patch
+    {
+        public static void Postfix(GameObject __result)
+        {
+            ChangeDecorTo(__result, new EffectorValues(15, 4));
+        }
+    }
+
+    // Mellow Mallow
+    [HarmonyPatch(typeof(WineCupsConfig), nameof(WineCupsConfig.CreatePrefab))]
+    class MellowMallow_CreatePrefab_Patch
+    {
+        public static void Postfix(GameObject __result)
+        {
+            ChangeDecorTo(__result, new EffectorValues(15, 4));
+        }
+    }
+
+    // Bliss Burst
+    [HarmonyPatch(typeof(CylindricaConfig), nameof(CylindricaConfig.CreatePrefab))]
+    class BlissBurst_CreatePrefab_Patch
     {
         public static void Postfix(GameObject __result)
         {

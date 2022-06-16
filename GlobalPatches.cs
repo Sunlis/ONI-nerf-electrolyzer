@@ -18,10 +18,17 @@ class GlobalPatches : UserMod2
         {"Edible2", 7 },
         {"Edible3", 10 },
 
-        {"RoomMessHall", 1 },
+        {"RoomBedroom", 3 },
+        {"RoomMessHall", 2 },
         {"RoomGreatHall", 3 },
         {"RoomPark", 2 },
         {"RoomNatureReserve", 4 },
+
+        {"SodaFountain", 2 },
+        {"Juicer", 3 },
+        {"Danced", 3 },
+        {"PlayedArcade", 4 },
+        {"Sauna", 3 },
     };
 
     [HarmonyPatch(typeof(Db), nameof(Db.Initialize))]
@@ -38,19 +45,24 @@ class GlobalPatches : UserMod2
                 Debug.Log($"{effect.Id}: {effect.Name}");
                 if (MoraleChanges.ContainsKey(effect.Id))
                 {
-                    if (effect.SelfModifiers.Count == 1 && effect.SelfModifiers[0].AttributeId == "QualityOfLife")
+                    bool found = false;
+                    foreach (var modifier in effect.SelfModifiers)
                     {
-                        effect.SelfModifiers = new List<AttributeModifier>()
+                        if (modifier.AttributeId == "QualityOfLife")
                         {
-                            new AttributeModifier("QualityOfLife", MoraleChanges[effect.Id], effect.SelfModifiers[0].GetDescription())
-                        };
+                            modifier.SetValue(MoraleChanges[effect.Id]);
+                            found = true;
+                            break;
+                        }
                     }
-                    else
+                    if (!found)
                     {
-                        Debug.LogWarning($"{effect.Id}: Expected to find exactly one AttributeModifier affecting QualityOfLife, but found {effect.SelfModifiers.Count} modifiers (and/or not matching QualityOfLife, a.k.a. Morale)");
+                        Debug.Log($"Could not tweak effect \"{effect.Name}\" to have morale of +{MoraleChanges[effect.Id]}");
                     }
                 }
             }
+
+            CritterTrapsAndBaitPatches.TweakTrapTechs();
         }
     }
 }
